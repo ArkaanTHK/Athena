@@ -36,3 +36,4 @@ Route::get('/resources', function () {
 Route::get('/forum', function () {
     return view('forum');
 });
+
