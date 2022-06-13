@@ -73,7 +73,7 @@
         <div class="gallery">
             <div>
               <img src="img/1.png" />
-              <img src="img/2.png" />
+              <img src="img/1.png" />
             </div>
           
             <div>
