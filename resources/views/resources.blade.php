@@ -37,6 +37,7 @@
                           <a class="nav-link" href="/about">About</a>
                           <a class="nav-link active" aria-current="page" href="/resources">Resources</a>
                           <a class="nav-link" href="/forum">Forum</a>
+                          <a class="nav-link" href="/login">Login</a>
                       </div>
                   </div>
               </div>
