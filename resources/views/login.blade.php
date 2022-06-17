@@ -13,9 +13,6 @@
 
 
 
-
-
-
 <body>
     <!--Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -31,8 +28,9 @@
                 <div class="navbar-nav me-auto">
                   <a class="nav-link" href="/">Home</a>
                   <a class="nav-link" href="/about">About</a>
-                  <a class="nav-link active" aria-current="page" href="/resources">Resources</a>
+                  <a class="nav-link" href="/blog">Blog</a>
                   <a class="nav-link" href="/forum">Forum</a>
+                  <a class="nav-link" href="/reset">Signup</a>
               </div>
           </div>
       </div>
@@ -54,7 +52,7 @@
             <label>Password</label>
         </div>
         <div class="forget">
-            <a href="reset-pass.html">Forgot Password?</a>
+            <a href="#">Forgot Password?</a>
         </div>
         <a href="home-page.html" id="signin">
             <span></span>
@@ -66,7 +64,7 @@
             <div class="signup">
                 <p>
                     New to Athena Threat Center?
-                    <a href="signup-page.html">Create Account</a>
+                    <a href="/reset">Create Account</a>
                 </p>
             </div>
         </form>
