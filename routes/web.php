@@ -29,11 +29,14 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-Route::get('/resources', function () {
-    return view('resources');
+Route::get('/blog', function () {
+    return view('blog');
 });
 
 Route::get('/forum', function () {
     return view('forum');
 });
 
+Route::get('/reset', function () {
+    return view('reset');
+});

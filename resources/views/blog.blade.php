@@ -7,7 +7,7 @@
     
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
-        <title>Athena Threat Center</title>
+        <title>Athena | Blog</title>
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="css/resources.css">
     
@@ -35,7 +35,7 @@
                         <div class="navbar-nav me-auto">
                           <a class="nav-link" href="/">Home</a>
                           <a class="nav-link" href="/about">About</a>
-                          <a class="nav-link active" aria-current="page" href="/resources">Resources</a>
+                          <a class="nav-link active" aria-current="page" href="/blog">Blog</a>
                           <a class="nav-link" href="/forum">Forum</a>
                           <a class="nav-link" href="/login">Login</a>
                       </div>
@@ -48,7 +48,7 @@
         <!-- Jumbotron Card Bootstrap -->
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 resources">Resources</h1>
+                <h1 class="display-4 resources">Blog Post's</h1>
             </div>
         </div>
         <!-- End of Jumbotron -->
