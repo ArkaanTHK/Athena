@@ -33,7 +33,7 @@
                     <div class="navbar-nav me-auto">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                         <a class="nav-link" href="/about">About</a>
-                        <a class="nav-link" href="/blog">Blog</a>
+                        <a class="nav-link" href="/showblog">Blog</a>
                         <a class="nav-link" href="/forum">Forum</a>
                         <a class="nav-link" href="/login">Login</a>
                     </div>

@@ -28,9 +28,9 @@
                 <div class="navbar-nav me-auto">
                   <a class="nav-link" href="/">Home</a>
                   <a class="nav-link" href="/about">About</a>
-                  <a class="nav-link" href="/blog">Blog</a>
+                  <a class="nav-link" href="/showblog">Blog</a>
                   <a class="nav-link" href="/forum">Forum</a>
-                  <a class="nav-link" href="/reset">Signup</a>
+                  <a class="nav-link" href="/register">Signup</a>
               </div>
           </div>
       </div>
@@ -40,31 +40,43 @@
 
 
 <!-- Login Box -->
+    @if(session()->has('success'))
+    <div class="container">
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+    </div>
+    @endif
+
+    @if(session()->has('loginError'))
+    <div class="container">
+    <div class="alert alert-danger">
+        {{ session()->get('loginError') }}
+    </div>
+    </div>
+    @endif
+
     <div class="login-box">
     <h2>Athena Threat Center</h2>
-    <form>
+    <form action="/login" method="post">
+        @csrf
         <div class="user-box">
-            <input type="text" name="" required>
+            <input type="text" name="username" id="username" required>
             <label>Username</label>
         </div>
         <div class="user-box">
-            <input type="password" name="" required>
+            <input type="password" name="password" id="password" required>
             <label>Password</label>
         </div>
         <div class="forget">
-            <a href="#">Forgot Password?</a>
+            <a href="/reset">Forgot Password?</a>
         </div>
-        <a href="home-page.html" id="signin">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Login
-        </a>
+        <button type="submit" class="btn btn-info">Login</button>
+        </form>
             <div class="signup">
                 <p>
                     New to Athena Threat Center?
-                    <a href="/reset">Create Account</a>
+                    <a href="/register">Create Account</a>
                 </p>
             </div>
         </form>

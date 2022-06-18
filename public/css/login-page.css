@@ -187,4 +187,14 @@ body {
     z-index: 1030;
 }
 
+
 /* End of Navbar CSS */
+
+.btn-info{
+    background-color: #03e9f4;
+    border-color: #03e9f4;
+    margin-bottom: 20px !important;
+    width: max-content;
+    display: block !important;
+    margin: 0 auto;
+}
