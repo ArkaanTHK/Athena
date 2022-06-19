@@ -12,8 +12,9 @@
           <h1 class="display-4 athena">Athena Blog</h1>
           <p class="lead">Resources</p>
     </div>
-        <a id="addbtn" href="/addblog"><button class="btn btn-success">Tambah Artikel</button></a>
-
+    @auth
+    <a id="addbtn" href="/addblog"><button class="btn btn-success">Add Article</button></a>
+    @endauth
 
 
 
@@ -29,7 +30,7 @@
             <img src="{{ asset('storage/' . $article->image)  }}" class="card-img-top" alt="gambar" >
             <div class="card-body">
                 <h5 class="card-title">{{ $article->judul }}</h5>
-                <a href="/detailblog/{{ $article->id }}" class="btn btn-primary">Baca Artikel</a>
+                <a href="/detailblog/{{ $article->id }}" class="btn btn-primary">Read</a>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
             <img src="https://pammana.wajokab.go.id/img/no-image.png" class="card-img-top" alt="gambar" >
             <div class="card-body">
                 <h5 class="card-title">{{ $article->judul }}</h5>
-                <a href="/detailblog/{{ $article->id }}" class="btn btn-primary">Baca Artikel</a>
+                <a href="/detailblog/{{ $article->id }}" class="btn btn-primary">Read</a>
             </div>
         </div>
     </div>

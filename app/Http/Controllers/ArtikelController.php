@@ -15,6 +15,12 @@ class ArtikelController extends Controller
         return view('showblog', ['articles' => $articles]);
     }
 
+    public function show3()
+    {
+        $articles = DB::table('artikels')->orderby('id', 'desc')->take(3)->get();
+        return view('index', ['articles' => $articles]);
+    }
+
     public function add()
     {
         return view('add');
@@ -38,7 +44,7 @@ class ArtikelController extends Controller
             ]);
         }
 
-        dd($article->file('image')->store('/artikel'));
+        // dd($article->file('image')->store('/artikel'));
         // $article->file('image')->store('/artikel');
         return redirect()->action([ArtikelController::class, 'show']);
         // return redirect('/showblog');

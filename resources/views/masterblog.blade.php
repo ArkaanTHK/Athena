@@ -15,7 +15,7 @@
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Athena</a>
+                <a class="navbar-brand" href="/">Athena</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,7 +25,21 @@
                           <a class="nav-link" href="/about">About</a>
                           <a class="nav-link active" aria-current="page" href="/showblog">Blog</a>
                           <a class="nav-link" href="/forum">Forum</a>
-                          <a class="nav-link" href="/login">Login</a>
+                          @auth
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome, {{ Auth::user()->username }}
+                            </a>
+                            <li class="nav-item dropdown">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <form action="/logout" method="post">
+                                  @csrf
+                                  <li><button type="submit" class="dropdown-item">Logout</button></li>
+                              </form>
+                            </ul>
+                            </li>
+                            @else
+                            <a class="nav-link" href="/login">Login</a>
+                            @endauth
                       </div>
                   </div>
               </div>

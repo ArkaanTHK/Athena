@@ -16,9 +16,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [ArtikelController::class, 'show3']);
 
 Route::get('/about', function () {
     return view('about');
@@ -52,5 +50,6 @@ Route::get('/deleteblog/{id}', [ArtikelController::class, 'delete']);
 
 Route::get('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'register']);
 Route::post('/register', [RegisterController::class, 'store']);

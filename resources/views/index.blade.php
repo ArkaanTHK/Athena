@@ -25,7 +25,7 @@
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Athena</a>
+                <a class="navbar-brand" href="/">Athena</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -35,7 +35,21 @@
                         <a class="nav-link" href="/about">About</a>
                         <a class="nav-link" href="/showblog">Blog</a>
                         <a class="nav-link" href="/forum">Forum</a>
-                        <a class="nav-link" href="/login">Login</a>
+                        @auth
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Welcome, {{ Auth::user()->username }}
+                          </a>
+                          <li class="nav-item dropdown">
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <form action="/logout" method="post">
+                                @csrf
+                                <li><button type="submit" class="dropdown-item">Logout</button></li>
+                            </form>
+                          </ul>
+                          </li>
+                          @else
+                          <a class="nav-link" href="/login">Login</a>
+                          @endauth
                     </div>
                 </div>
             </div>
@@ -50,43 +64,80 @@
           <p class="lead">Solution of All Solution</p>
         </div>
        <!-- Card -->
+
       <div class="container">
         <div class="row cards">
-          <div class="col-md-4">
-            <div class="card">
-              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-          
 
+
+          @foreach ($articles as $article)
+          @if($article->image != null)
+          <div class="col-md-4 bintang">
+            <div class="card">
+              <img src="{{ asset('storage/' . $article->image)  }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ $article->judul }}</h5>
+                <p class="card-text">{{ $article->deskripsi }}</p>
+              </div>
+            </div>
+          </div>
+
+          @else
+          <div class="col-md-4 bintang">
+            <div class="card">
+              <img src="https://pammana.wajokab.go.id/img/no-image.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ $article->judul }}</h5>
+                <p class="card-text">{{ $article->deskripsi }}</p>
+              </div>
+            </div>
+          </div>
+          @endif
+          @endforeach
+
+
+
+
+
+        </div>
+      </div>
 
 
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+          {{-- <div class="col-md-4">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div> --}}
+        
+      
+          
+
+

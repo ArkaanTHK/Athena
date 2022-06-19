@@ -21,10 +21,20 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->Session()->regenerate();
-            return redirect()->intended('/forum');
+            return redirect()->intended('/');
         }
 
         return back()->with('loginError', 'Login Failed!');
         // dd('berhasil login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        request()->Session()->invalidate();
+
+        request()->Session()->regenerateToken();
+
+        return back();
     }
 }
