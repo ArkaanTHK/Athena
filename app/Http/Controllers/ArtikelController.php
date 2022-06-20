@@ -29,13 +29,11 @@ class ArtikelController extends Controller
 
     public function addblog_process(Request $article)
     {
-        // dd($article->judul);
         if ($article->file('image')) {
-            // $article->file('image')->store('/artikel');
             Artikel::create([
                 'judul' => $article->judul,
                 'deskripsi' => $article->deskripsi,
-                'image' => $article->file('image')->store('/artikel'),
+                'image' => $article->file('image')->store('artikel'),
             ]);
         } else {
             Artikel::create([
